@@ -10,16 +10,16 @@ export default function ArtPiecePreview({ pieces }) {
   }
 
   return (
-    <ul>
+    <div>
       {pieces.map(({ slug, imageSource, name, artist }) => (
-        <li key={slug}>
+        <div key={slug}>
           <Link slug={slug} href={`/art-pieces/${slug}`}>
-            <img src={imageSource} alt={name} />
+            <img src={imageSource} alt={name} width="400px" />
           </Link>
           <p>{name}</p>
           <p>{artist}</p>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }
