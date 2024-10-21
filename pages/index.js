@@ -9,6 +9,7 @@ export default function HomePage() {
   return (
     <div>
       <h1>Hello from Next.jspr</h1>
+      <ArtPieces pieces={data} />
     </div>
   );
 }
