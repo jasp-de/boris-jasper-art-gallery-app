@@ -1,12 +1,27 @@
 import ArtPieceDetails from "../../components/ArtPieceDetails";
-import Link from "next/link";
-import Head from "next/head";
-import Router from "next/router";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 
-export default function Details({ image, title, artist, year, genre }) {
-  return (
-    <div>
-      <ArtPieceDetails> </ArtPieceDetails>
-    </div>
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+export default function PieceDetails() {
+  const router = useRouter();
+  const { slug } = router.query;
+
+  const { data, error } = useSWR(
+    `https://example-apis.vercel.app/api/art`,
+    fetcher
   );
+
+  if (!slug || !data) {
+    return <p>Loading...</p>;
+  }
+
+  const PieceData = data.find((piece) => piece.slug === slug);
+
+  if (!PieceData) {
+    return <p>Art piece not found</p>;
+  }
+
+  return <ArtPieceDetails PieceData={PieceData} />;
 }
