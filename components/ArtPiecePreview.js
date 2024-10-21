@@ -1,3 +1,7 @@
+import Link from "next/link";
+import Head from "next/head";
+import Router from "next/router";
+
 export default function ArtPiecePreview({ pieces }) {
   console.log(pieces);
 
@@ -7,11 +11,13 @@ export default function ArtPiecePreview({ pieces }) {
 
   return (
     <ul>
-      {pieces.map((piece) => (
-        <li key={piece.slug}>
-          <img src={piece.imageSource} alt={piece.name} />
-          <p>{piece.name}</p>
-          <p>{piece.artist}</p>
+      {pieces.map(({ slug, imageSource, name, artist }) => (
+        <li key={slug}>
+          <Link slug={slug} href={`/art-pieces/${slug}`}>
+            <img src={imageSource} alt={name} />
+          </Link>
+          <p>{name}</p>
+          <p>{artist}</p>
         </li>
       ))}
     </ul>
