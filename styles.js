@@ -10,7 +10,10 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: system-ui;
-    max-width: 400px;
     margin: 30px;
   }
+
+img {
+  display: block;
+}
 `;
