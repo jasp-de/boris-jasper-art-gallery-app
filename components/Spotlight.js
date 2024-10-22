@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import Head from "next/head";
+import Router from "next/router";
+import Link from "next/link";
 
 const SpotlightWrapper = styled.div`
   margin-bottom: 40px;
@@ -48,7 +51,9 @@ export default function Spotlight({ pieces }) {
   return (
     <SpotlightWrapper>
       <h2>Spotlight</h2>
-      <img src={randomPiece.imageSource} alt={randomPiece.name} />
+      <Link href={`/art-pieces/${randomPiece.slug}`}>
+        <img src={randomPiece.imageSource} alt={randomPiece.name} />
+      </Link>
       <p>{randomPiece.artist}</p>
       <button onClick={getRandomPiece}>Show Another Piece</button>
     </SpotlightWrapper>

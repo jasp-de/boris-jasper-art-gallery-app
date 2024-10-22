@@ -14,7 +14,7 @@ export default function ArtPieceDetails({ pieceData }) {
         {" "}
         BACK
       </Link>
-      <img src={imageSource} alt={name} title={name} width="400px" />
+      <img src={imageSource} alt={name} title={name} />
       <p>
         {name} - {year}
       </p>
