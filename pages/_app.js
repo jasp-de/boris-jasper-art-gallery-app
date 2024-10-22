@@ -1,29 +1,23 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
-<<<<<<< HEAD
+import Layout from "@/components/Layout";
 import ArtPieces from "@/components/ArtPieces";
 import Spotlight from "@/components/Spotlight";
 import { useEffect, useState } from "react";
 const fetcher = (url) => fetch(url).then((res) => res.json());
-export default function App({ Component, pageProps }) {
-=======
+
 import { useImmerLocalStorageState } from "../lib/hook/useImmerLocalStorageState";
-
-const fetcher = (url) => fetch(url).then((res) => res.json());
-
 export default function App({ Component, pageProps }) {
   const [artPiecesInfo, updateArtPiecesInfo] = useImmerLocalStorageState(
     "artPiecesInfo",
     { defaultValue: [] }
   );
 
->>>>>>> main
   const { data, error } = useSWR(
     `https://example-apis.vercel.app/api/art`,
     fetcher
   );
 
-<<<<<<< HEAD
   const [randomValueSpotlight, setRandomValueSpotlight] = useState(null);
 
   useEffect(() => {
@@ -39,10 +33,10 @@ export default function App({ Component, pageProps }) {
     return <div>Error fetching data!</div>;
   }
 
-=======
->>>>>>> main
   return (
     <>
+      <Layout />
+
       {randomValueSpotlight !== null && (
         <Spotlight
           artist={data[randomValueSpotlight]}
