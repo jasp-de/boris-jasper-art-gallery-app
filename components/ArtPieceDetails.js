@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-export default function ArtPieceDetails({ PieceData }) {
-  const { imageSource, name, year, artist, genre, colors } = PieceData;
+export default function ArtPieceDetails({ pieceData }) {
+  const { imageSource, name, artist, year, genre, colors } = pieceData;
 
   return (
     <div>
