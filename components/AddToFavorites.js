@@ -7,7 +7,7 @@ const FavoriteButton = styled.button`
   cursor: pointer;
   padding: 0;
   transition: transform 0.3s ease;
-
+  max-width: 50px;
   &:hover {
     transform: scale(1.1);
   }
