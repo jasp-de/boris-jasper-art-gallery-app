@@ -40,6 +40,13 @@ const FavoriteButtonWrapper = styled.div`
   right: 10px;
 `;
 
+const RandomPieceButton = styled.button`
+  &:hover {
+    transform: scale(1.01);
+    background-color: #357abd;
+  }
+`;
+
 export default function Spotlight({ pieces, artPiecesInfo, handleFavorites }) {
   const [randomPiece, setRandomPiece] = useState(null);
 
@@ -64,7 +71,6 @@ export default function Spotlight({ pieces, artPiecesInfo, handleFavorites }) {
 
   return (
     <SpotlightWrapper>
-      <h2>Spotlight</h2>
       <ImageContainer>
         <Link href={`/art-pieces/${randomPiece.slug}`}>
           <img src={randomPiece.imageSource} alt={randomPiece.name} />
@@ -77,7 +83,9 @@ export default function Spotlight({ pieces, artPiecesInfo, handleFavorites }) {
         </FavoriteButtonWrapper>
       </ImageContainer>
       <p>{randomPiece.artist}</p>
-      <button onClick={getRandomPiece}>Show Another Piece</button>
+      <RandomPieceButton onClick={getRandomPiece}>
+        Show Another Piece
+      </RandomPieceButton>
     </SpotlightWrapper>
   );
 }

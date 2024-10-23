@@ -1,7 +1,7 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
-import { useEffect, useState } from "react";
 import { useImmerLocalStorageState } from "../lib/hook/useImmerLocalStorageState";
+import Navigation from "../components/Navigation";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -30,6 +30,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
+      <Navigation />
       <Component
         {...pageProps}
         data={data}
