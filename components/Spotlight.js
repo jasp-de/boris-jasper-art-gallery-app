@@ -4,11 +4,12 @@ import Link from "next/link";
 import AddToFavorites from "./AddToFavorites";
 
 const SpotlightWrapper = styled.div`
-  margin-bottom: 100px;
+  margin-bottom: 20px;
+  margin-top: 40px;
   text-align: center;
   width: 100%;
   height: auto;
-  max-height: 70vh;
+  max-height: 60vh;
 
   h2 {
     font-size: 24px;
@@ -18,7 +19,7 @@ const SpotlightWrapper = styled.div`
   img {
     width: 100%;
     height: auto;
-    max-height: 70vh;
+    max-height: 60vh;
     object-fit: contain;
     margin-bottom: 10px;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
@@ -38,7 +39,7 @@ const ImageContainer = styled.div`
   position: relative;
   margin-bottom: 10px;
   width: 100%;
-  max-height: 70vh;
+  max-height: 60vh;
   display: inline-block;
 `;
 

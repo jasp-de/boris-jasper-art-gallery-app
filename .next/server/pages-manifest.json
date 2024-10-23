@@ -3,6 +3,8 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
+  "/spotlight": "pages/spotlight.js",
   "/art-pieces/[slug]": "pages/art-pieces/[slug].js",
-  "/spotlight": "pages/spotlight.js"
+  "/art-pieces": "pages/art-pieces.js",
+  "/favorites": "pages/favorites.js"
 }
