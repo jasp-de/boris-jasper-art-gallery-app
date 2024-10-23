@@ -10,7 +10,11 @@ export default function HomePage({ data, artPiecesInfo, handleFavorites }) {
   return (
     <div>
       <AnimatedHeading />
-      <Spotlight pieces={data} />
+      <Spotlight
+        pieces={data}
+        artPiecesInfo={artPiecesInfo}
+        handleFavorites={handleFavorites}
+      />
       <ArtPieces
         pieces={data}
         artPiecesInfo={artPiecesInfo}
