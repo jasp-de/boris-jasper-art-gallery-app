@@ -4,6 +4,7 @@ import Link from "next/link";
 import AddToFavorites from "./AddToFavorites";
 
 const SpotlightWrapper = styled.div`
+
   margin-bottom: 20px;
   margin-top: 20px;
   text-align: center;
@@ -38,6 +39,7 @@ const SpotlightWrapper = styled.div`
 const ImageContainer = styled.div`
   position: relative;
   margin-bottom: 10px;
+
   width: 100%;
   max-height: 60vh;
   display: inline-block;
@@ -54,6 +56,23 @@ const RandomPieceButton = styled.button`
   &:hover {
     transform: scale(1.01);
     background-color: #357abd;
+  }
+`;
+
+
+const ArtImage = styled.img`
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  &:hover {
+    animation: grow 0.3s forwards;
+  }
+
+  @keyframes grow {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.02);
+    }
   }
 `;
 
