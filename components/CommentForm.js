@@ -2,12 +2,30 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const CommentList = styled.ul`
-  list-style-type: none; // Убираем маркеры списка
-  padding: 0; // Убираем отступы
+  list-style-type: none;
+  padding: 0;
 `;
 
 const CommentItem = styled.li`
   margin-bottom: 15px;
+`;
+
+const CommentText = styled.span`
+  display: block;
+  font-size: 16px;
+`;
+
+const CommentDate = styled.span`
+  display: block;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: lowercase;
+`;
+
+const NoCommentsText = styled.p`
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: lowercase;
 `;
 
 const CommentFormWrapper = styled.form`
@@ -32,7 +50,7 @@ const TextArea = styled.textarea`
 `;
 
 const SubmitButton = styled.button`
-  align-self: flex-end;
+  align-self: flex-start;
   background-color: #4a90e2;
   color: white;
   border: none;
@@ -57,7 +75,10 @@ export default function CommentForm({ slug }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newComments = [...comments, comment];
+    const date = new Date();
+    const formattedDate = `${date.toLocaleDateString()} ${date.getHours()}:${date.getMinutes()}`;
+    const newComment = { text: comment, date: formattedDate };
+    const newComments = [...comments, newComment];
     setComments(newComments);
     localStorage.setItem(`comments-${slug}`, JSON.stringify(newComments));
     setComment("");
@@ -66,11 +87,18 @@ export default function CommentForm({ slug }) {
   return (
     <div>
       <h3>Comments</h3>
-      <CommentList>
-        {comments.map((c, index) => (
-          <CommentItem key={index}>Anonim: {c}</CommentItem>
-        ))}
-      </CommentList>
+      {comments.length === 0 ? (
+        <NoCommentsText>No comments yet</NoCommentsText>
+      ) : (
+        <CommentList>
+          {comments.map((c, index) => (
+            <CommentItem key={index}>
+              <CommentText>Anonim: {c.text}</CommentText>
+              <CommentDate>{c.date}</CommentDate>
+            </CommentItem>
+          ))}
+        </CommentList>
+      )}
       <CommentFormWrapper onSubmit={handleSubmit}>
         <TextArea
           value={comment}
