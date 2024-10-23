@@ -20,7 +20,6 @@ export default createGlobalStyle`
   }
 
   img {
-    max-width: 100%;
     height: auto;
     display: block;
   }

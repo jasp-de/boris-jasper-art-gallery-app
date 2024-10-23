@@ -125,7 +125,6 @@ export default function ArtPieceDetails({
           />
         ))}
       </ColorsWrapper>
-
       <CommentForm slug={slug} />
     </ArtPieceWrapper>
   );

@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import ArtPiecePreview from "./ArtPiecePreview";
 
-const ArtPiecesGrid = styled.ul`
+
+const ArtPiecesList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
   margin: 0 auto;
+
+  margin-top: 80px;
   padding: 20px;
 `;
 
@@ -16,6 +19,7 @@ const PreviewContainer = styled.li`
   justify-content: center;
   gap: 24px;
   margin: 0 auto;
+  margin-top: 40px;
   padding: 20px;
 `;
 
@@ -25,7 +29,7 @@ export default function ArtPieces({ pieces, artPiecesInfo, handleFavorites }) {
   }
 
   return (
-    <ArtPiecesGrid>
+    <ArtPiecesList>
       <PreviewContainer>
         {pieces.map((piece) => (
           <ArtPiecePreview
@@ -39,6 +43,7 @@ export default function ArtPieces({ pieces, artPiecesInfo, handleFavorites }) {
           />
         ))}
       </PreviewContainer>
-    </ArtPiecesGrid>
+    </ArtPiecesList>
+
   );
 }

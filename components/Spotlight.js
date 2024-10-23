@@ -4,8 +4,13 @@ import Link from "next/link";
 import AddToFavorites from "./AddToFavorites";
 
 const SpotlightWrapper = styled.div`
-  margin-bottom: 40px;
+
+  margin-bottom: 20px;
+  margin-top: 20px;
   text-align: center;
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
 
   h2 {
     font-size: 24px;
@@ -14,9 +19,11 @@ const SpotlightWrapper = styled.div`
 
   img {
     width: 100%;
-    max-height: 70vh;
-    object-fit: cover;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
     margin-bottom: 10px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   }
 
   p {
@@ -32,12 +39,17 @@ const SpotlightWrapper = styled.div`
 const ImageContainer = styled.div`
   position: relative;
   margin-bottom: 10px;
+
+  width: 100%;
+  max-height: 60vh;
+  display: inline-block;
 `;
 
 const FavoriteButtonWrapper = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
+  z-index: 1;
 `;
 
 const RandomPieceButton = styled.button`
@@ -46,6 +58,7 @@ const RandomPieceButton = styled.button`
     background-color: #357abd;
   }
 `;
+
 
 const ArtImage = styled.img`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -89,14 +102,14 @@ export default function Spotlight({ pieces, artPiecesInfo, handleFavorites }) {
     <SpotlightWrapper>
       <ImageContainer>
         <Link href={`/art-pieces/${randomPiece.slug}`}>
-          <ArtImage src={randomPiece.imageSource} alt={randomPiece.name} />
+          <img src={randomPiece.imageSource} alt={randomPiece.name} />
+          <FavoriteButtonWrapper>
+            <AddToFavorites
+              isFavorite={isFavorite}
+              onToggleFavorite={handleFavorites}
+            />
+          </FavoriteButtonWrapper>
         </Link>
-        <FavoriteButtonWrapper>
-          <AddToFavorites
-            isFavorite={isFavorite}
-            onToggleFavorite={() => handleFavorites(randomPiece.slug)}
-          />
-        </FavoriteButtonWrapper>
       </ImageContainer>
       <p>{randomPiece.artist}</p>
       <RandomPieceButton onClick={getRandomPiece}>
