@@ -17,6 +17,7 @@ const BackLink = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
+  text-decoration: underline;
 
   &:hover {
     color: #666;

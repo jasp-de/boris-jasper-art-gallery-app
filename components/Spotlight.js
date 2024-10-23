@@ -71,7 +71,6 @@ export default function Spotlight({ pieces, artPiecesInfo, handleFavorites }) {
 
   return (
     <SpotlightWrapper>
-      <h2>Spotlight</h2>
       <ImageContainer>
         <Link href={`/art-pieces/${randomPiece.slug}`}>
           <img src={randomPiece.imageSource} alt={randomPiece.name} />
