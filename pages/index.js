@@ -9,7 +9,6 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 export default function HomePage({ data, artPiecesInfo, handleFavorites }) {
   return (
     <div>
-      <AnimatedHeading />
       <Spotlight
         pieces={data}
         artPiecesInfo={artPiecesInfo}
