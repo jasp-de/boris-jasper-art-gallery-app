@@ -24,7 +24,7 @@ export default function ArtPiecePreview({ pieces, handleFavorites }) {
             margin: "20px",
           }}
         >
-          <Link slug={slug} href={`/art-pieces/${slug}`}>
+          <Link slug={slug} href={`/art-pieces-details/${slug}`}>
             <img src={imageSource} alt={name} width="400px" />
           </Link>
           <p>{name}</p>

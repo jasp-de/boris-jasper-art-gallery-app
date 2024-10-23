@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-export default function Navigation() {
+export default function Navigation(slug) {
   return (
     <nav className="navbar">
-      <Link href="/pages/Spotlight">
+      <Link slug={slug} href={`/${slug}`}>
         <button>Spotlight</button>
       </Link>
-      <Link href="/pages/art-pieces">
+      <Link slug={slug} href={`/${slug}`}>
         <button>Pieces</button>
       </Link>
     </nav>
