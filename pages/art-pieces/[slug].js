@@ -1,27 +1,28 @@
 import ArtPieceDetails from "../../components/ArtPieceDetails";
 import { useRouter } from "next/router";
-import useSWR from "swr";
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
-
-export default function PieceDetails() {
+export default function PieceDetails({ data, artPiecesInfo, handleFavorites }) {
   const router = useRouter();
   const { slug } = router.query;
-
-  const { data, error } = useSWR(
-    `https://example-apis.vercel.app/api/art`,
-    fetcher
-  );
 
   if (!slug || !data) {
     return <p>Loading...</p>;
   }
 
-  const PieceData = data.find((piece) => piece.slug === slug);
+  const pieceData = data.find((piece) => piece.slug === slug);
 
-  if (!PieceData) {
+  if (!pieceData) {
     return <p>Art piece not found</p>;
   }
 
-  return <ArtPieceDetails PieceData={PieceData} />;
+  const isFavorite =
+    artPiecesInfo.find((info) => info.slug === slug)?.isFavorite || false;
+
+  return (
+    <ArtPieceDetails
+      pieceData={pieceData}
+      isFavorite={isFavorite}
+      handleFavorites={handleFavorites}
+    />
+  );
 }
