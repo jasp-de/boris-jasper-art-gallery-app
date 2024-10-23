@@ -2,7 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import AddToFavorites from "./AddToFavorites";
 
-const PreviewContainer = styled.div`
+const PreviewContainer = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;

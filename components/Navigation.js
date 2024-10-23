@@ -8,7 +8,7 @@ const NavBar = styled.nav`
   align-items: center;
   padding: 1rem 2rem;
   background-color: #f8f8f8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
 `;
 
 const Title = styled.h1`
