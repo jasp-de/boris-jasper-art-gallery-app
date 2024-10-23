@@ -33,10 +33,18 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const TitleLink = styled(StyledLink)`
+  font-size: 1.5rem;
+  color: #4a90e2;
+  font-weight: bold;
+`;
+
 export default function Navigation() {
   return (
     <NavBar>
-      <Title>BJ Gallery</Title>
+      <TitleLink href="/">
+        <Title>BJ Gallery</Title>
+      </TitleLink>
       <NavLinks>
         <StyledLink href="/spotlight">Spotlight</StyledLink>
         <StyledLink href="/art-pieces">Pieces</StyledLink>
