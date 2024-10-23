@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styled from "styled-components";
-import AddToFavorites from "@/components/AddToFavorites";
 import Spotlight from "@/components/Spotlight";
 
 const BackLink = styled(Link)`

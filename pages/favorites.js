@@ -1,8 +1,4 @@
-import { useImmerLocalStorageState } from "../lib/hook/useImmerLocalStorageState";
 import ArtPieces from "@/components/ArtPieces";
-import ArtPiecePreview from "@/components/ArtPiecePreview";
-import Spotlight from "@/components/Spotlight";
-import AnimatedHeading from "@/components/AnimatedHeading";
 import styled from "styled-components";
 import Link from "next/link";
 
