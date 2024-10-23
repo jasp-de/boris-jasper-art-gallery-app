@@ -4,8 +4,11 @@ import Link from "next/link";
 import AddToFavorites from "./AddToFavorites";
 
 const SpotlightWrapper = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 100px;
   text-align: center;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
 
   h2 {
     font-size: 24px;
@@ -14,9 +17,11 @@ const SpotlightWrapper = styled.div`
 
   img {
     width: 100%;
+    height: auto;
     max-height: 70vh;
-    object-fit: cover;
+    object-fit: contain;
     margin-bottom: 10px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   }
 
   p {
@@ -32,34 +37,22 @@ const SpotlightWrapper = styled.div`
 const ImageContainer = styled.div`
   position: relative;
   margin-bottom: 10px;
+  width: 100%;
+  max-height: 70vh;
+  display: inline-block;
 `;
 
 const FavoriteButtonWrapper = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
+  z-index: 1;
 `;
 
 const RandomPieceButton = styled.button`
   &:hover {
     transform: scale(1.01);
     background-color: #357abd;
-  }
-`;
-
-const ArtImage = styled.img`
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  &:hover {
-    animation: grow 0.3s forwards;
-  }
-
-  @keyframes grow {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.02);
-    }
   }
 `;
 
@@ -89,14 +82,14 @@ export default function Spotlight({ pieces, artPiecesInfo, handleFavorites }) {
     <SpotlightWrapper>
       <ImageContainer>
         <Link href={`/art-pieces/${randomPiece.slug}`}>
-          <ArtImage src={randomPiece.imageSource} alt={randomPiece.name} />
+          <img src={randomPiece.imageSource} alt={randomPiece.name} />
+          <FavoriteButtonWrapper>
+            <AddToFavorites
+              isFavorite={isFavorite}
+              onToggleFavorite={handleFavorites}
+            />
+          </FavoriteButtonWrapper>
         </Link>
-        <FavoriteButtonWrapper>
-          <AddToFavorites
-            isFavorite={isFavorite}
-            onToggleFavorite={() => handleFavorites(randomPiece.slug)}
-          />
-        </FavoriteButtonWrapper>
       </ImageContainer>
       <p>{randomPiece.artist}</p>
       <RandomPieceButton onClick={getRandomPiece}>
