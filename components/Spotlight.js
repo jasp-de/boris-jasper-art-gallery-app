@@ -5,7 +5,7 @@ import AddToFavorites from "./AddToFavorites";
 
 const SpotlightWrapper = styled.div`
   margin-bottom: 20px;
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: center;
   width: 100%;
   height: auto;

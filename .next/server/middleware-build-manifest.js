@@ -24,10 +24,15 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/spotlight": [
+    "/art-pieces": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/spotlight.js"
+      "static/chunks/pages/art-pieces.js"
+    ],
+    "/favorites": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/favorites.js"
     ]
   },
   "ampFirstPages": []
