@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AddToFavorites from "./AddToFavorites";
 import styled from "styled-components";
+import CommentForm from "./CommentForm";
 
 const ArtPieceWrapper = styled.div`
   max-width: 800px;
@@ -87,7 +88,7 @@ export default function ArtPieceDetails({
   isFavorite,
   handleFavorites,
 }) {
-  const { imageSource, name, artist, year, genre, colors } = pieceData;
+  const { imageSource, name, artist, year, genre, colors, slug } = pieceData;
 
   const handleToggleFavorite = () => {
     handleFavorites(pieceData.slug);
@@ -124,6 +125,8 @@ export default function ArtPieceDetails({
           />
         ))}
       </ColorsWrapper>
+
+      <CommentForm slug={slug} />
     </ArtPieceWrapper>
   );
 }
