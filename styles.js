@@ -23,8 +23,6 @@ export default createGlobalStyle`
     max-width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   button {
@@ -35,10 +33,6 @@ export default createGlobalStyle`
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #357abd;
-    }
   }
 
   @media (min-width: 768px) {
