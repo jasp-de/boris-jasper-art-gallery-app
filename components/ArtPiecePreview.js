@@ -20,6 +20,22 @@ const FavoriteButtonWrapper = styled.div`
   right: 10px;
 `;
 
+const ArtImage = styled.img`
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  &:hover {
+    animation: grow 0.3s forwards;
+  }
+
+  @keyframes grow {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.02);
+    }
+  }
+`;
+
 export default function ArtPiecePreview({
   piece,
   isFavorite,
@@ -31,7 +47,7 @@ export default function ArtPiecePreview({
     <PreviewContainer>
       <ImageContainer>
         <Link href={`/art-pieces/${slug}`}>
-          <img src={imageSource} alt={name} width="400px" />
+          <ArtImage src={imageSource} alt={name} width="400px" />
         </Link>
         <FavoriteButtonWrapper>
           <AddToFavorites
