@@ -87,7 +87,7 @@ export default function Spotlight({ pieces, artPiecesInfo, handleFavorites }) {
 
   return (
     <SpotlightWrapper>
-      <>
+      <ImageContainer>
         <Link href={`/art-pieces/${randomPiece.slug}`}>
           <ArtImage src={randomPiece.imageSource} alt={randomPiece.name} />
         </Link>
@@ -97,7 +97,7 @@ export default function Spotlight({ pieces, artPiecesInfo, handleFavorites }) {
             onToggleFavorite={() => handleFavorites(randomPiece.slug)}
           />
         </FavoriteButtonWrapper>
-      </>
+      </ImageContainer>
       <p>{randomPiece.artist}</p>
       <RandomPieceButton onClick={getRandomPiece}>
         Show Another Piece
