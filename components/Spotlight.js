@@ -47,6 +47,22 @@ const RandomPieceButton = styled.button`
   }
 `;
 
+const ArtImage = styled.img`
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  &:hover {
+    animation: grow 0.3s forwards;
+  }
+
+  @keyframes grow {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.02);
+    }
+  }
+`;
+
 export default function Spotlight({ pieces, artPiecesInfo, handleFavorites }) {
   const [randomPiece, setRandomPiece] = useState(null);
 
@@ -71,9 +87,9 @@ export default function Spotlight({ pieces, artPiecesInfo, handleFavorites }) {
 
   return (
     <SpotlightWrapper>
-      <ImageContainer>
+      <>
         <Link href={`/art-pieces/${randomPiece.slug}`}>
-          <img src={randomPiece.imageSource} alt={randomPiece.name} />
+          <ArtImage src={randomPiece.imageSource} alt={randomPiece.name} />
         </Link>
         <FavoriteButtonWrapper>
           <AddToFavorites
@@ -81,7 +97,7 @@ export default function Spotlight({ pieces, artPiecesInfo, handleFavorites }) {
             onToggleFavorite={() => handleFavorites(randomPiece.slug)}
           />
         </FavoriteButtonWrapper>
-      </ImageContainer>
+      </>
       <p>{randomPiece.artist}</p>
       <RandomPieceButton onClick={getRandomPiece}>
         Show Another Piece
